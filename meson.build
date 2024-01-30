@@ -9,7 +9,7 @@ llvm_version = ['>=14', '<15']
 llvm_dep = dependency('llvm', method: 'config-tool', version: llvm_version, include_type: 'system')
 
 toolchains = subproject('toolchains', default_options: {'enable_arm': 'enabled'})
-assert(toolchains.get_variable('enable_arm'), 'We need a functional ARM toolchain for InfiniTime')
+assert(toolchains.get_variable('arm_enabled'), 'We need a functional ARM toolchain for InfiniTime')
 llvm_bindir = toolchains.get_variable('llvm_bindir')
 gcc_arm_version = toolchains.get_variable('gcc_arm_version')
 gcc_cxx_include = toolchains.get_variable('gcc_cxx_include')
