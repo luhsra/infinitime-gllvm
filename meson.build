@@ -12,9 +12,9 @@ toolchains = subproject('toolchains', default_options: {'enable_arm': 'enabled'}
 assert(toolchains.get_variable('arm_enabled'), 'We need a functional ARM toolchain for InfiniTime')
 llvm_bindir = toolchains.get_variable('llvm_bindir')
 gcc_arm_version = toolchains.get_variable('gcc_arm_version')
-gcc_cxx_include = toolchains.get_variable('gcc_cxx_include')
+arm_cxx_dir = toolchains.get_variable('arm_cxx_dir')
 arm_triple = toolchains.get_variable('arm_triple')
-libgcc_dir = toolchains.get_variable('libgcc_dir')
+arm_libgcc_dir = toolchains.get_variable('arm_libgcc_dir')
 arm_include_path = toolchains.get_variable('arm_include_path')
 arm_link_path = toolchains.get_variable('arm_link_path')
 llvm_objcopy = toolchains.get_variable('llvm_objcopy')
@@ -82,11 +82,11 @@ arm_mode = 'thumb' / 'v7e-m+fp' / 'hard'
 cflags = [
   f'-I@arm_include_path@',
   f'-L@arm_link_path@' / arm_mode,
-  f'-L@libgcc_dir@' / arm_mode,
+  f'-L@arm_libgcc_dir@' / arm_mode,
 ]
 cxx_libs = ' '.join([
-  gcc_cxx_include,
-  gcc_cxx_include / arm_triple / arm_mode,
+  arm_cxx_dir,
+  arm_cxx_dir / arm_triple / arm_mode,
 ])
 pinetime_app_bc = custom_target('pinetime-app-bc',
   output:['pinetime-app-0.15.0.out.bc'],
