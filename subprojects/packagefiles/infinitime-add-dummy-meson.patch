@@ -1,0 +1,12 @@
+diff --git a/meson.build b/meson.build
+new file mode 100644
+index 0000000..3dc1651
+--- /dev/null
++++ b/meson.build
+@@ -0,0 +1,6 @@
++project('nrf5-llvm', 'c',
++  version : '0.1',
++  default_options : ['warning_level=3'])
++
++# this is just to satisfy Meson until https://github.com/mesonbuild/meson/issues/12451 is fixed
++infinitime_dir = meson.project_source_root()
