@@ -131,3 +131,4 @@ pinetime_app = custom_target('pinetime-app',
   ], build_by_default: true
 )
 
+freertos_config = fs.copyfile(infinitime.get_variable('freertos_config'), 'FreeRTOSConfig.h')
