@@ -120,6 +120,7 @@ pinetime_app_bc = custom_target('pinetime-app-bc',
                       'CMAKE_AR=' + arm_ar.full_path(),
                       'CMAKE_RANLIB=' + arm_ranlib.full_path(),
                       'CMAKE_SIZE_UTIL=' + arm_size.full_path(),
+                      'CMAKE_BUILD_TYPE=Debug',
     ],
   ],
 )
