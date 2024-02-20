@@ -53,20 +53,10 @@ if not lv_font_conv.found()
 endif
 
 # gllvm/wllvm
-gclang = find_program('gclang', required: false)
-gclang_cpp = find_program('gclang++', required: false)
-get_bc = find_program('get-bc', required: false)
-gclang_is_wllvm = false
-if not gclang.found() or not gclang_cpp.found()
-  gclang = find_program('wllvm', required: false)
-  gclang_cpp = find_program('wllvm++', required: false)
-  get_bc = find_program('extract-bc', required: false)
-  gclang_is_wllvm = true
-  if not gclang.found() or not gclang_cpp.found()
-    # note: we need a gllvm version after commit fa0b9ea
-    error('Neither gllvm nor wllvm found. One of them is required. Install gllvm with `go install github.com/SRI-CSL/gllvm/cmd/...@master`')
-  endif
-endif
+gllvm_meson = subproject('gllvm-meson')
+gclang = gllvm_meson.get_variable('gclang')
+gclang_cpp = gllvm_meson.get_variable('gclang_cpp')
+get_bc = gllvm_meson.get_variable('get_bc')
 
 # Loading the CMake targets within Meson does not work, so call it directly.
 # See https://github.com/mesonbuild/meson/issues/12451
