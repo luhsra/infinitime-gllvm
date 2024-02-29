@@ -80,8 +80,8 @@ cxx_libs = ' '.join([
   arm_cxx_dir,
   arm_cxx_dir / arm_triple / arm_mode,
 ])
-pinetime_app_bc = custom_target('pinetime-app-bc',
-  output:['pinetime-app-0.15.0.out.bc'],
+infinitime_app_bc = custom_target('infinitime-app-bc',
+  output:['infinitime-app-0.15.0.out.bc'],
   env: build_tools_env,
   command: [
     make_infinitime_bitcode,
@@ -118,10 +118,10 @@ pinetime_app_bc = custom_target('pinetime-app-bc',
   ],
 )
 
-pinetime_app = custom_target('pinetime-app',
-  output: 'pinetime-app-0.15.0.ll',
+infinitime_app = custom_target('infinitime-app',
+  output: 'infinitime-app-0.15.0.ll',
   command: [
-    llvm_dis, '-o', '@OUTPUT@', pinetime_app_bc,
+    llvm_dis, '-o', '@OUTPUT@', infinitime_app_bc,
   ], build_by_default: true
 )
 
