@@ -58,6 +58,8 @@ gclang = gllvm_meson.get_variable('gclang')
 gclang_cpp = gllvm_meson.get_variable('gclang_cpp')
 get_bc = gllvm_meson.get_variable('get_bc')
 
+build_tools_env = gllvm_meson.get_variable('build_tools_env')
+
 # Loading the CMake targets within Meson does not work, so call it directly.
 # See https://github.com/mesonbuild/meson/issues/12451
 
@@ -80,10 +82,11 @@ cxx_libs = ' '.join([
 ])
 pinetime_app_bc = custom_target('pinetime-app-bc',
   output:['pinetime-app-0.15.0.out.bc'],
+  env: build_tools_env,
   command: [
     make_infinitime_bitcode,
-    '--cmake-builddir', meson.current_build_dir() / 'infinitime_build',
-    '--infinitime-dir', infinitime_dir,
+    '--build-dir', meson.current_build_dir() / 'infinitime_build',
+    '--src-dir', infinitime_dir,
     '--llvm-bindir', llvm_bindir,
     '--target', 'pinetime-app-0.15.0.out',
     '--cmake-program', cmake_tool.full_path(),
