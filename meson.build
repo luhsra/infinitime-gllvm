@@ -126,3 +126,4 @@ infinitime_app = custom_target('infinitime-app',
 )
 
 freertos_config = fs.copyfile(infinitime.get_variable('freertos_config'), 'FreeRTOSConfig.h')
+translation_map = infinitime.get_variable('translation_map')

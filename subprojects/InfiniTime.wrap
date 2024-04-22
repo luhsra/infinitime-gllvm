@@ -3,5 +3,3 @@ url = git@scm.sra.uni-hannover.de:misc/InfiniTime.git
 clone-recursive = true
 revision = ara
 depth = 1
-
-diff_files = infinitime-add-dummy-meson.patch
