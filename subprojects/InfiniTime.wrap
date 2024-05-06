@@ -1,5 +1,5 @@
 [wrap-git]
-url = git@scm.sra.uni-hannover.de:misc/InfiniTime.git
+url = ssh://git@scm.sra.uni-hannover.de/misc/InfiniTime.git
 clone-recursive = true
 revision = ara
 depth = 1

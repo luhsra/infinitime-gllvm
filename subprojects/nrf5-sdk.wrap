@@ -1,4 +1,4 @@
 [wrap-git]
-url = git@scm.sra.uni-hannover.de:research/nrf5-sdk.git
+url = ssh://git@scm.sra.uni-hannover.de/research/nrf5-sdk.git
 revision = main
 depth = 1
