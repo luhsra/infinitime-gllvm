@@ -127,3 +127,23 @@ infinitime_app = custom_target('infinitime-app',
 
 freertos_config = fs.copyfile(infinitime.get_variable('freertos_config'), 'FreeRTOSConfig.h')
 translation_map = infinitime.get_variable('translation_map')
+
+it_src = infinitime_dir / 'src'
+
+cloc_app = [
+  it_src / 'BootloaderVersion.cpp',
+  it_src / 'BootloaderVersion.h',
+  it_src / 'components',
+  it_src / 'displayapp',
+  it_src / 'drivers',
+  it_src / 'FreeRTOSConfig.h',
+  it_src / 'heartratetask',
+  it_src / 'logging',
+  it_src / 'main.cpp',
+  it_src / 'main.h',
+  it_src / 'recoveryLoader.cpp',
+  it_src / 'sdk_config.h',
+  it_src / 'systemtask',
+]
+
+cloc_lib = [it_src / 'libs']
