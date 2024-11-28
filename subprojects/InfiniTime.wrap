@@ -1,5 +1,5 @@
 [wrap-git]
-url = ssh://git@scm.sra.uni-hannover.de/research/parrot-projects/InfiniTime.git
+url = https://github.com/luhsra/InfiniTime.git
 clone-recursive = true
-revision = ara
+revision = github
 depth = 1
