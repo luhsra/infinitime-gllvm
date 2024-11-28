@@ -1,4 +1,4 @@
 [wrap-git]
-url = ssh://git@scm.sra.uni-hannover.de/research/parrot-projects/nrf5-sdk.git
-revision = main
+url = https://github.com/luhsra/nrf5-sdk.git
+revision = github
 depth = 1
